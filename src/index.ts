@@ -9,7 +9,7 @@ const app = express()
 app.use(json())
 app.use(cors())
 
-app.get('/songs', async (rq, rs) => {
+app.get('/', async (rq, rs) => {
   const q = (rq.query.q || '').toString()
   const base = path.join(__dirname, '../songs/released/', q)
 
@@ -38,7 +38,7 @@ app.get('/songs', async (rq, rs) => {
     return rs.send(response)
   } catch {}
 
-    return rs.send('idk')
+  return rs.send('idk')
 })
 
 app.listen(3000, () => {
