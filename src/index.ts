@@ -1,3 +1,4 @@
+import 'core-js/actual'
 import fs from 'fs'
 import express from 'express'
 import cors from 'cors'
@@ -12,7 +13,7 @@ app.use(cors())
 app.get('/', async (rq, rs) => {
   try {
     console.log('replaceAll: ', ''.replaceAll)
-    
+
     const q = (rq.query.q || '')
       .toString()
       .replace(/../g, '')
@@ -48,8 +49,8 @@ app.get('/', async (rq, rs) => {
     } catch {}
 
     return rs.send('idk')
-  } catch (e){
-    console.log(e);
+  } catch (e) {
+    console.log(e)
     return rs.send('idk')
   }
 })
@@ -57,4 +58,3 @@ app.get('/', async (rq, rs) => {
 app.listen(3000, () => {
   console.log('Server started on port 3000')
 })
-            
