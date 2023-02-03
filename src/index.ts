@@ -46,7 +46,8 @@ app.get('/', async (rq, rs) => {
     } catch {}
 
     return rs.send('idk')
-  } catch {
+  } catch (e){
+    console.log(e);
     return rs.send('idk')
   }
 })
