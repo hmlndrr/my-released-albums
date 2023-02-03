@@ -10,13 +10,16 @@ app.use(json())
 app.use(cors())
 
 app.get('/', async (rq, rs) => {
-  const q = (rq.query.q || '').toString()
-  const base = path
-    .join(__dirname, '../songs/released/', q)
+  const q = (rq.query.q || '')
+    .toString()
     .replaceAll('..', '')
     .split('')
     .filter(c => c.charCodeAt(0) > 0)
     .join('')
+
+  const base = path.join(__dirname, '../songs/released/', q)
+
+  console.log(base)
 
   try {
     if (rq.query.q) {
@@ -34,7 +37,7 @@ app.get('/', async (rq, rs) => {
               .map(
                 song => `
                 <li> 
-                    <a href="/songs/?q=${song}" >${song}</a>
+                    <a href="/?q=${song}" >${song}</a>
                 </li>`
               )
               .join('')}
