@@ -12,16 +12,16 @@ app.use(cors())
 
 app.get('/', async (rq, rs) => {
   try {
-    console.log('replaceAll: ', ''.replaceAll)
-
     const q = (rq.query.q || '')
       .toString()
-      .replace(/../g, '')
+      .replaceAll('..', '')
       .split('')
       .filter(c => c.charCodeAt(0) > 0)
       .join('')
 
     const base = path.join(__dirname, '../songs/released/', q)
+
+    console.log(base)
 
     try {
       if (rq.query.q) {
