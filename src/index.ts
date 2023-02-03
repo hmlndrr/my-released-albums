@@ -21,8 +21,6 @@ app.get('/', async (rq, rs) => {
 
     const base = path.join(__dirname, '../songs/released/', q)
 
-    console.log(base)
-
     try {
       if (rq.query.q) {
         const song = await fs.readFileSync(base)
