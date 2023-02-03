@@ -11,6 +11,8 @@ app.use(cors())
 
 app.get('/', async (rq, rs) => {
   try {
+    console.log('replaceAll: ', ''.replaceAll)
+    
     const q = (rq.query.q || '')
       .toString()
       .replaceAll('..', '')
