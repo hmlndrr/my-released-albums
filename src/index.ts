@@ -15,7 +15,7 @@ app.get('/', async (rq, rs) => {
     
     const q = (rq.query.q || '')
       .toString()
-      .replaceAll('..', '')
+      .replace(/../g, '')
       .split('')
       .filter(c => c.charCodeAt(0) > 0)
       .join('')
